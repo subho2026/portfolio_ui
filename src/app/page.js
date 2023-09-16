@@ -1,9 +1,16 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Header from "@/widgets/header";
 import Footer from "@/widgets/footer";
+import { useEffect, useState } from "react";
+import GetPortfolioDetails from "../../state/action";
 
 export default function Home() {
+  const [portfolioDetails, setPortfolioDetails] = useState({});
+  useEffect(() => {
+    GetPortfolioDetails().then((response) => console.log(response.data));
+  }, []);
   return (
     <>
       <Header />
