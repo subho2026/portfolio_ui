@@ -4,13 +4,16 @@ import styles from "./page.module.css";
 import Header from "@/widgets/header";
 import Footer from "@/widgets/footer";
 import { useEffect, useState } from "react";
-import GetPortfolioDetails from "../../state/action";
+import getPortfolioDetails from "../../state/action";
+import Link from "next/link";
 
 export default function Home() {
   const [portfolioDetails, setPortfolioDetails] = useState({});
+
   useEffect(() => {
-    GetPortfolioDetails().then((response) => console.log(response.data));
+    getPortfolioDetails(1).then((response) => console.log(response.data));
   }, []);
+
   return (
     <>
       <Header />
@@ -347,7 +350,7 @@ export default function Home() {
               className="icon contact-icon email-icon"
             />
             <p>
-              <a href="mailto:examplemail@gmail.com">Example@gmail.com</a>
+              <Link href="mailto:examplemail@gmail.com">Example@gmail.com</Link>
             </p>
           </div>
           <div className="contact-info-container">
@@ -357,7 +360,7 @@ export default function Home() {
               className="icon contact-icon"
             />
             <p>
-              <a href="https://www.linkedin.com">LinkedIn</a>
+              <Link href="https://www.linkedin.com">LinkedIn</Link>
             </p>
           </div>
         </div>
