@@ -11,7 +11,9 @@ export default function Home() {
   const [portfolioDetails, setPortfolioDetails] = useState({});
 
   useEffect(() => {
-    getPortfolioDetails(1).then((response) => console.log(response.data));
+    getPortfolioDetails(1).then((response) =>
+      setPortfolioDetails(response.data)
+    );
   }, []);
 
   return (
@@ -23,8 +25,13 @@ export default function Home() {
         </div>
         <div className="section__text">
           <p className="section__text__p1">Hello, I'm</p>
-          <h1 className="title">John Doe</h1>
-          <p className="section__text__p2">Frontend Developer</p>
+          <h1 className="title">
+            {portfolioDetails?.about?.[0].firstname}
+            {portfolioDetails?.about?.[0].lastname}
+          </h1>
+          <p className="section__text__p2">
+            {portfolioDetails?.about?.[0].designation}
+          </p>
           <div className="btn-container">
             <button
               className="btn btn-color-2"
@@ -88,9 +95,10 @@ export default function Home() {
                 />
                 <h3>Education</h3>
                 <p>
-                  B.Sc. Bachelors Degree
-                  <br />
-                  M.Sc. Masters Degree
+                  {portfolioDetails?.education?.map((item) => {
+                    return item.degree;
+                    <br />;
+                  })}
                 </p>
               </div>
             </div>
