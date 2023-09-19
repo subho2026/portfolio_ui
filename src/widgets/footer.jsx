@@ -9,6 +9,11 @@ export default function Footer() {
                 <a href="#about">About</a>
               </li>
               <li>
+                <a href="#skills">
+                  Skills
+                </a>
+              </li>
+              <li>
                 <a href="#experience">Experience</a>
               </li>
               <li>
@@ -20,7 +25,7 @@ export default function Footer() {
             </ul>
           </div>
         </nav>
-        <p>Copyright \'a9 2023 Subhankar Dey. All Rights Reserved.</p>
+        <p>Copyright 2023 subho2026@gmail.com .</p>
       </footer>
     </>
   );

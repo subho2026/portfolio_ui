@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <>
       <nav id="desktop-nav">
-        <div className="logo">John Doe</div>
+        <div className="logo">Subhankar Dey</div>
         <div>
           <ul className="nav-links">
             <li>
@@ -10,6 +10,9 @@ export default function Header() {
             </li>
             <li>
               <a href="#experience">Experience</a>
+            </li>
+            <li>
+              <a href="#skills">Skills</a>
             </li>
             <li>
               <a href="#projects">Projects</a>
@@ -32,6 +35,11 @@ export default function Header() {
             <li>
               <a href="#about" onclick="toggleMenu()">
                 About
+              </a>
+            </li>
+            <li>
+              <a href="#skills" onclick="toggleMenu()">
+                Skills
               </a>
             </li>
             <li>

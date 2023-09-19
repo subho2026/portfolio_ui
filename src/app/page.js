@@ -21,7 +21,10 @@ export default function Home() {
       <Header />
       <section id="profile">
         <div className="section__pic-container">
-          <img src="./assets/profile-pic.png" alt="John Doe profile picture" />
+          <img
+            src={portfolioDetails?.about?.[0].primary_image}
+            alt="Profile Picture"
+          />
         </div>
         <div className="section__text">
           <p className="section__text__p1">Hello, I'm</p>
@@ -33,17 +36,18 @@ export default function Home() {
             {portfolioDetails?.about?.[0].designation}
           </p>
           <div className="btn-container">
-            <button
+            <Link
+              href={portfolioDetails?.about?.[0]?.cv_url}
               className="btn btn-color-2"
-              onclick="window.open('./assets/resume-example.pdf')"
+              target="_blank"
             >
-              Download CV\
-            </button>
+              Download CV
+            </Link>
             <button
               className="btn btn-color-1"
               onclick="location.href='./#contact'"
             >
-              Contact Info\
+              Contact Info
             </button>
           </div>
           <div id="socials-container">
@@ -82,10 +86,8 @@ export default function Home() {
                   className="icon"
                 />
                 <h3>Experience</h3>
-                <p>
-                  2+ years <br />
-                  Frontend Development
-                </p>
+                <br />
+                <p>+4 years as a Support Specialist</p>
               </div>
               <div className="details-container">
                 <img
@@ -95,22 +97,18 @@ export default function Home() {
                 />
                 <h3>Education</h3>
                 <p>
-                  {portfolioDetails?.education?.map((item) => {
-                    return item.degree;
-                    <br />;
-                  })}
+                  <br />
+                  {portfolioDetails?.education?.[0].degree}
+                  <br />
+                  <br />
+                  {portfolioDetails?.education?.[1].degree}
                 </p>
               </div>
             </div>
             <div className="text-container">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
-                quis\ reprehenderit et laborum, rem, dolore eum quod voluptate\
-                exercitationem nobis, nihil esse debitis maxime facere minus
-                sint\ delectus velit in eos quo officiis explicabo deleniti
-                dignissimos.\ Eligendi illum libero dolorum cum laboriosam
-                corrupti quidem,\ reiciendis ea magnam? Nulla, impedit fuga!\
-              </p>
+              <br />
+              <p>{portfolioDetails?.about?.[0].about}</p>
+              <br />
             </div>
           </div>
         </div>
@@ -118,16 +116,17 @@ export default function Home() {
           src="./assets/arrow.png"
           alt="Arrow icon"
           className="icon arrow"
-          onclick="location.href='./#experience'"
+          onclick="location.href='./#skills'"
         />
       </section>
-      <section id="experience">
+
+      <section id="skills">
         <p className="section__text__p1">Explore My</p>
-        <h1 className="title">Experience</h1>
+        <h1 className="title">Skills</h1>
         <div className="experience-details-container">
           <div className="about-containers">
             <div className="details-container">
-              <h2 className="experience-sub-title">Frontend Development</h2>
+              <h2 className="experience-sub-title">Technical Skills</h2>
               <div className="article-container">
                 <article>
                   <img
@@ -137,7 +136,7 @@ export default function Home() {
                   />
                   <div>
                     <h3>HTML</h3>
-                    <p>Experienced</p>
+                    <p>{portfolioDetails?.skill?.[0].level}</p>
                   </div>
                 </article>
                 <article>
@@ -148,7 +147,12 @@ export default function Home() {
                   />
                   <div>
                     <h3>CSS</h3>
-                    <p>Experienced</p>
+                    <p>
+                      {portfolioDetails?.skill?.map((item) => {
+                        return item.level;
+                        <br />;
+                      })}
+                    </p>
                   </div>
                 </article>
                 <article>
@@ -159,7 +163,12 @@ export default function Home() {
                   />
                   <div>
                     <h3>SASS</h3>
-                    <p>Intermediate</p>
+                    <p>
+                      {portfolioDetails?.skill?.map((item) => {
+                        return item.level;
+                        <br />;
+                      })}
+                    </p>
                   </div>
                 </article>
                 <article>
@@ -170,7 +179,12 @@ export default function Home() {
                   />
                   <div>
                     <h3>JavaScript</h3>
-                    <p>Basic</p>
+                    <p>
+                      {portfolioDetails?.skill?.map((item) => {
+                        return item.level;
+                        <br />;
+                      })}
+                    </p>
                   </div>
                 </article>
                 <article>
@@ -181,7 +195,12 @@ export default function Home() {
                   />
                   <div>
                     <h3>TypeScript</h3>
-                    <p>Basic</p>
+                    <p>
+                      {portfolioDetails?.skill?.map((item) => {
+                        return item.level;
+                        <br />;
+                      })}
+                    </p>
                   </div>
                 </article>
                 <article>
@@ -192,7 +211,12 @@ export default function Home() {
                   />
                   <div>
                     <h3>Material UI</h3>
-                    <p>Intermediate</p>
+                    <p>
+                      {portfolioDetails?.skill?.map((item) => {
+                        return item.level;
+                        <br />;
+                      })}
+                    </p>
                   </div>
                 </article>
               </div>
@@ -208,7 +232,12 @@ export default function Home() {
                   />
                   <div>
                     <h3>PostgreSQL</h3>
-                    <p>Basic</p>
+                    <p>
+                      {portfolioDetails?.skill?.map((item) => {
+                        return item.level;
+                        <br />;
+                      })}
+                    </p>
                   </div>
                 </article>
                 <article>
@@ -219,7 +248,12 @@ export default function Home() {
                   />
                   <div>
                     <h3>Node JS</h3>
-                    <p>Intermediate</p>
+                    <p>
+                      {portfolioDetails?.skill?.map((item) => {
+                        return item.level;
+                        <br />;
+                      })}
+                    </p>
                   </div>
                 </article>
                 <article>
@@ -230,7 +264,12 @@ export default function Home() {
                   />
                   <div>
                     <h3>Express JS</h3>
-                    <p>Intermediate</p>
+                    <p>
+                      {portfolioDetails?.skill?.map((item) => {
+                        return item.level;
+                        <br />;
+                      })}
+                    </p>
                   </div>
                 </article>
                 <article>
@@ -241,9 +280,53 @@ export default function Home() {
                   />
                   <div>
                     <h3>Git</h3>
-                    <p>Intermediate</p>
+                    <p>
+                      {portfolioDetails?.skill?.map((item) => {
+                        return item.level;
+                        <br />;
+                      })}
+                    </p>
                   </div>
                 </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          src="./assets/arrow.png"
+          alt="Arrow icon"
+          className="icon arrow"
+          onclick="location.href='./#experience'"
+        />
+      </section>
+
+      <section id="experience">
+        <p className="section__text__p1">Explore My</p>
+        <h1 className="title">Experience</h1>
+        <div className="experience-details-container">
+          <div className="about-containers">
+            <div className="details-container" style={{ textAlign: "left" }}>
+              <div className="article-container" style={{ textAlign: "left" }}>
+                {portfolioDetails?.professionalexperience?.map(
+                  (item, index) => (
+                    <article key={index}>
+                      <img
+                        src="./assets/checkmark.png"
+                        alt="Experience icon"
+                        className="icon"
+                      />
+                      <div className="experience-item">
+                        <h2 className="experience-company">{item.company}</h2>
+
+                        <h3 className="experience-profile">{item.profile}</h3>
+
+                        <p className="experience-description">
+                          {item.description}
+                        </p>
+                      </div>
+                    </article>
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -255,6 +338,7 @@ export default function Home() {
           onclick="location.href='./#projects'"
         />
       </section>
+
       <section id="projects">
         <p className="section__text__p1">Browse My Recent</p>
         <h1 className="title">Projects</h1>
@@ -262,11 +346,12 @@ export default function Home() {
           <div className="about-containers">
             <div className="details-container color-container">
               <div className="article-container">
-                <img
-                  src="./assets/project-1.png"
-                  alt="Project 1"
-                  className="project-img"
-                />
+                <div>
+                  <img
+                    src={portfolioDetails?.project?.[0].thumbnail}
+                    alt="project1"
+                  />
+                </div>
               </div>
               <h2 className="experience-sub-title project-title">
                 Project One
@@ -276,13 +361,13 @@ export default function Home() {
                   className="btn btn-color-2 project-btn"
                   onclick="location.href='https://github.com/'"
                 >
-                  Github\
+                  Github
                 </button>
                 <button
                   className="btn btn-color-2 project-btn"
                   onclick="location.href='https://github.com/'"
                 >
-                  Live Demo\
+                  Live Demo
                 </button>
               </div>
             </div>

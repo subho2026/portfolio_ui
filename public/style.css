@@ -430,3 +430,23 @@ footer {
 footer p {
   text-align: center;
 }
+
+/*called value decoration  */
+.highlighted-text {
+  color: rgb(32, 31, 31);
+  font-weight: bold;
+}
+
+article {
+  width: 100% !important;
+  justify-content: flex-start !important;
+}
+
+.article-container {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.section__pic-container img {
+  border-radius: 200px;
+}
