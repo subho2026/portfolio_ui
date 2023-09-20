@@ -36,20 +36,21 @@ export default function Home() {
             {portfolioDetails?.about?.[0].designation}
           </p>
           <div className="btn-container">
-            <Link
-              href={portfolioDetails?.about?.[0]?.cv_url}
-              className="btn btn-color-2"
-              target="_blank"
-            >
-              Download CV
-            </Link>
+            {portfolioDetails?.about?.[0]?.cv_url ? (
+              <Link href={portfolioDetails.about[0].cv_url} target="_blank">
+                <a className="btn btn-color-2">Download CV</a>
+              </Link>
+            ) : (
+              <p>CV URL is not available</p>
+            )}
             <button
               className="btn btn-color-1"
-              onclick="location.href='./#contact'"
+              onClick={() => (window.location.href = "./#contact")}
             >
               Contact Info
             </button>
           </div>
+
           <div id="socials-container">
             <img
               src="./assets/linkedin.png"
@@ -107,7 +108,19 @@ export default function Home() {
             </div>
             <div className="text-container">
               <br />
-              <p>{portfolioDetails?.about?.[0].about}</p>
+              <p
+                style={{
+                  fontSize: "1rem",
+                  lineHeight: "1.5",
+                  marginBottom: "2px",
+                  padding: "0.5rem",
+                  textAlign: "justify",
+                  fontWeight: "bold",
+                }}
+              >
+                {portfolioDetails?.about?.[0].about}
+              </p>
+
               <br />
             </div>
           </div>
@@ -320,7 +333,15 @@ export default function Home() {
 
                         <h3 className="experience-profile">{item.profile}</h3>
 
-                        <p className="experience-description">
+                        <p
+                          style={{
+                            fontSize: "1rem",
+                            lineHeight: "1.5",
+                            marginBottom: "2px",
+                            padding: "0.5rem",
+                            textAlign: "justify",
+                          }}
+                        >
                           {item.description}
                         </p>
                       </div>
@@ -350,11 +371,12 @@ export default function Home() {
                   <img
                     src={portfolioDetails?.project?.[0].thumbnail}
                     alt="project1"
+                    style={{ width: "200px", height: "150px" }}
                   />
                 </div>
               </div>
               <h2 className="experience-sub-title project-title">
-                Project One
+                {portfolioDetails?.project?.[0].name || "Default Name"}
               </h2>
               <div className="btn-container">
                 <button
@@ -365,7 +387,7 @@ export default function Home() {
                 </button>
                 <button
                   className="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/'"
+                  onclick="location.href='#'"
                 >
                   Live Demo
                 </button>
@@ -374,13 +396,13 @@ export default function Home() {
             <div className="details-container color-container">
               <div className="article-container">
                 <img
-                  src="./assets/project-2.png"
-                  alt="Project 2"
-                  className="project-img"
+                  src={portfolioDetails?.project?.[1].thumbnail}
+                  alt="project1"
+                  style={{ width: "200px", height: "150px" }} // Set the desired width and height
                 />
               </div>
               <h2 className="experience-sub-title project-title">
-                Project Two
+                {portfolioDetails?.project?.[1].name || "Default Name"}
               </h2>
               <div className="btn-container">
                 <button
@@ -400,13 +422,13 @@ export default function Home() {
             <div className="details-container color-container">
               <div className="article-container">
                 <img
-                  src="./assets/project-3.png"
-                  alt="Project 3"
-                  className="project-img"
+                  src={portfolioDetails?.project?.[2].thumbnail}
+                  alt="project1"
+                  style={{ width: "200px", height: "150px" }}
                 />
               </div>
               <h2 className="experience-sub-title project-title">
-                Project Three
+                {portfolioDetails?.project?.[2].name || "Default Name"}
               </h2>
               <div className="btn-container">
                 <button
